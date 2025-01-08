@@ -56,7 +56,7 @@ export default function LandingPage() {
             <h2 className="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600">
               Strategic Campaign Intelligence
             </h2>
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
               {[
                 {
                   title: "Sentiment Analysis",
