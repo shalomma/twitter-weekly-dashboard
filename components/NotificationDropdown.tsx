@@ -55,6 +55,24 @@ const NotificationMessage = styled.p`
     font-size: 14px;
 `;
 
+const NotificationBadge = styled.span`
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: #ff3e00;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 11px;
+    font-weight: 600;
+    min-width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(255, 62, 0, 0.3);
+`;
+
 const NotificationDropdown: React.FC<NotificationDropdownProps> = ({
     notifications,
     onNotificationClick
@@ -72,18 +90,12 @@ const NotificationDropdown: React.FC<NotificationDropdownProps> = ({
         <DropdownContainer>
             <Button variant="outline" size="icon" onClick={toggleDropdown}>
                 <Bell className="h-[1.4rem] w-[1.2rem] scale-100" />
+                {notifications.length > 0 && (
+                    <NotificationBadge>
+                        {notifications.length}
+                    </NotificationBadge>
+                )}
             </Button>
-            {notifications.length > 0 && (
-                <span style={{ 
-                    background: '#ff3e00', 
-                    color: 'white', 
-                    borderRadius: '50%', 
-                    padding: '2px 6px', 
-                    fontSize: '12px' 
-                }}>
-                    {notifications.length}
-                </span>
-            )}
 
             <NotificationPanel isOpen={isOpen}>
                 {notifications.length === 0 ? (
