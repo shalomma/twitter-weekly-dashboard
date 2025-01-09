@@ -87,7 +87,9 @@ const NotificationDropdown: React.FC<NotificationDropdownProps> = ({
 
             <NotificationPanel isOpen={isOpen}>
                 {notifications.length === 0 ? (
-                    <NotificationItem/>
+                    <NotificationItem>
+                        <NotificationMessage>No new notifications</NotificationMessage>
+                    </NotificationItem>
                 ) : (
                     notifications.map((notification, index) => (
                         <NotificationItem
