@@ -4,7 +4,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import Link from "next/link";
 
-import { Moon, Sun } from "lucide-react"
+import { Moon, Sun, LogIn } from "lucide-react"
 import { useTheme } from "next-themes"
  
 
@@ -21,8 +21,8 @@ export default function LandingPage() {
           
           <div className="flex items-center gap-2">
             <Link href="/dashboard">
-              <Button variant="ghost" size="sm">
-                Sign In
+              <Button variant="outline" size="icon">
+                <LogIn className="h-[1.2rem] w-[1.2rem] scale-100" />
               </Button>
             </Link>
 
