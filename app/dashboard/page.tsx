@@ -12,10 +12,14 @@ import React from "react";
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
  
+import { useNotifications } from '@/components/NotificationsProvider';
+
 
 export default function DashboardPage() {
   const { setTheme, theme } = useTheme()
-  
+  const { notifications } = useNotifications()
+  console.log(notifications)
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       

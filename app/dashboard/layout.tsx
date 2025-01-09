@@ -1,3 +1,6 @@
+import { NotificationsProvider } from '@/components/NotificationsProvider';
+
+
 export default function DashboardLayout({
   children,
 }: {
@@ -5,7 +8,9 @@ export default function DashboardLayout({
 }) {
   return (
     <div className="min-h-screen bg-background">
-      {children}
+      <NotificationsProvider>
+        {children}
+      </NotificationsProvider>
     </div>
   );
 }
