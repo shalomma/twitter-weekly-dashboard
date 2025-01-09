@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { FaRegBell } from 'react-icons/fa';
 
 interface Notification {
     message: string;
@@ -80,7 +81,7 @@ const NotificationDropdown: React.FC<NotificationDropdownProps> = ({
     return (
         <DropdownContainer>
             <DropdownButton onClick={toggleDropdown}>
-                <span>Notifications</span>
+                <FaRegBell size={16} />
                 {notifications.length > 0 && (
                     <span style={{ 
                         background: '#ff3e00', 

@@ -31,15 +31,15 @@ export default function DashboardPage() {
             <span className="font-bold text-xl">Hive</span>
           </Link>
           <div className="flex items-center gap-2">
-            <NotificationDropdown 
-              notifications={formattedNotifications}
-              onNotificationClick={(message) => console.log('Notification clicked:', message)}
-            />
             <Link href="/">
               <Button variant="ghost" size="sm">
                 Sign Out
               </Button>
             </Link>
+            <NotificationDropdown 
+              notifications={formattedNotifications}
+              onNotificationClick={(message) => console.log('Notification clicked:', message)}
+            />
 
             <Button
               variant="outline"
