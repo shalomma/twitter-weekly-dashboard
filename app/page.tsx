@@ -24,7 +24,7 @@ export default function LandingPage() {
       <header className="fixed w-full px-4 lg:px-6 h-16 flex items-center justify-center backdrop-blur-sm bg-white/75 dark:bg-gray-900/75 z-50 border-b border-gray-200 dark:border-gray-800">
         <div className="container max-w-6xl flex items-center justify-between">
           <Link className="flex items-center justify-center" href="/">
-            <span className="font-bold text-xl">PoliticalPulse</span>
+            <span className="font-bold text-xl">Hive</span>
           </Link>
           
           <div className="flex items-center gap-2">
@@ -173,7 +173,7 @@ export default function LandingPage() {
         <div className="container max-w-6xl mx-auto px-4 py-6">
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <p className="text-sm text-gray-500 dark:text-gray-400">
-              © 2024 PoliticalPulse. All rights reserved.
+              © 2025 Hive. All rights reserved.
             </p>
             <nav className="flex gap-6">
               <a className="text-sm hover:underline underline-offset-4" href="#">

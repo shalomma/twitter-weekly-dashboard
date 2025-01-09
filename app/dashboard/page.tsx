@@ -14,7 +14,7 @@ export default function DashboardPage() {
       <header className="fixed w-full px-4 lg:px-6 h-16 flex items-center justify-center backdrop-blur-sm bg-white/75 dark:bg-gray-900/75 z-50 border-b border-gray-200 dark:border-gray-800">
         <div className="container max-w-6xl flex items-center justify-between">
           <Link className="flex items-center justify-center" href="/">
-            <span className="font-bold text-xl">PoliticalPulse</span>
+            <span className="font-bold text-xl">Hive</span>
           </Link>
           <Link href="/">
             <Button variant="ghost" size="sm">
