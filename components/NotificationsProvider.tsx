@@ -24,8 +24,22 @@ export function NotificationsProvider({ children }: NotificationsProviderProps) 
       console.error("NEXT_PUBLIC_ABLY_API_KEY is not defined");
       return;
     }
+
     const client = new Ably.Realtime(apiKey)
-    const channel = client.channels.get("notifications:users")
+    const channel = client.channels.get("notifications:users", { params: { rewind: '100' } });
+
+    const fetchMessageHistory = async () => {
+      try {
+        const messages = await channel.history({ limit: 100 });
+        const historicalNotifications = messages.items.map(msg => msg.data.message);
+        setNotifications(historicalNotifications);
+      } catch (error) {
+        console.error('Error fetching message history:', error);
+      }
+    };
+
+    // Call fetchMessageHistory immediately after channel setup
+    fetchMessageHistory();
 
     channel.subscribe('new-notification', (msg) => {
       const notificationMessage = msg.data.message

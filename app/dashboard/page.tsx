@@ -13,12 +13,14 @@ import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
  
 import { useNotifications } from '@/components/NotificationsProvider';
-
+import NotificationDropdown from '@/components/NotificationDropdown';
 
 export default function DashboardPage() {
   const { setTheme, theme } = useTheme()
   const { notifications } = useNotifications()
-  console.log(notifications)
+  
+  // Transform string array to Notification array
+  const formattedNotifications = notifications.map(message => ({ message }))
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
@@ -29,6 +31,10 @@ export default function DashboardPage() {
             <span className="font-bold text-xl">Hive</span>
           </Link>
           <div className="flex items-center gap-2">
+            <NotificationDropdown 
+              notifications={formattedNotifications}
+              onNotificationClick={(message) => console.log('Notification clicked:', message)}
+            />
             <Link href="/">
               <Button variant="ghost" size="sm">
                 Sign Out
