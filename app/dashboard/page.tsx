@@ -1,26 +1,63 @@
 import { ImpressionsChart } from '@/components/charts/ImpressionsChart';
 import { EngagementChart } from '@/components/charts/EngagementChart';
 import { FollowersChart } from '@/components/charts/FollowersChart';
-import { StatsCard } from '@/components/dashboard/StatsCard';
+// import { StatsCard } from '@/components/dashboard/StatsCard';
 import { TopContent } from '@/components/dashboard/TopContent';
 import { dailyStats, engagementRates, topContent, audienceGrowth, dashboardStats } from '@/lib/mock-data';
 import Link from "next/link";
 import {Button} from "@/components/ui/button";
 import React from "react";
 
+import { Moon, Sun } from "lucide-react"
+import { useTheme } from "next-themes"
+ 
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
+
 export default function DashboardPage() {
+    const { setTheme } = useTheme()
+  
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      
       <header className="fixed w-full px-4 lg:px-6 h-16 flex items-center justify-center backdrop-blur-sm bg-white/75 dark:bg-gray-900/75 z-50 border-b border-gray-200 dark:border-gray-800">
         <div className="container max-w-6xl flex items-center justify-between">
           <Link className="flex items-center justify-center" href="/">
             <span className="font-bold text-xl">Hive</span>
           </Link>
-          <Link href="/">
-            <Button variant="ghost" size="sm">
-              Sign Out
-            </Button>
-          </Link>
+          <div className="flex items-center gap-2">
+            <Link href="/">
+              <Button variant="ghost" size="sm">
+                Sign Out
+              </Button>
+            </Link>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="icon">
+                  <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                  <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                  <span className="sr-only">Toggle theme</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onClick={() => setTheme("light")}>
+                  Light
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setTheme("dark")}>
+                  Dark
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setTheme("system")}>
+                  System
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
         </div>
       </header>
 
