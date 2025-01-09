@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import Link from "next/link";
 
 
-import { Moon, MoonIcon, Sun } from "lucide-react"
+import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
  
 import {
