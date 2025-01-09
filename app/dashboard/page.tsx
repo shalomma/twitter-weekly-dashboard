@@ -1,3 +1,5 @@
+"use client"
+
 import { ImpressionsChart } from '@/components/charts/ImpressionsChart';
 import { EngagementChart } from '@/components/charts/EngagementChart';
 import { FollowersChart } from '@/components/charts/FollowersChart';
