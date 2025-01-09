@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { FaRegBell } from 'react-icons/fa';
+import { Bell } from "lucide-react";
+import { Button } from '@/components/ui/button';
 
 interface Notification {
     message: string;
@@ -14,17 +15,6 @@ interface NotificationDropdownProps {
 const DropdownContainer = styled.div`
     position: relative;
     display: inline-block;
-`;
-
-const DropdownButton = styled.button`
-    background: #ffffff;
-    border: 1px solid #e1e1e1;
-    border-radius: 4px;
-    padding: 8px 12px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
 `;
 
 interface NotificationPanelProps {
@@ -80,26 +70,24 @@ const NotificationDropdown: React.FC<NotificationDropdownProps> = ({
 
     return (
         <DropdownContainer>
-            <DropdownButton onClick={toggleDropdown}>
-                <FaRegBell size={16} />
-                {notifications.length > 0 && (
-                    <span style={{ 
-                        background: '#ff3e00', 
-                        color: 'white', 
-                        borderRadius: '50%', 
-                        padding: '2px 6px', 
-                        fontSize: '12px' 
-                    }}>
-                        {notifications.length}
-                    </span>
-                )}
-            </DropdownButton>
+            <Button variant="outline" size="icon" onClick={toggleDropdown}>
+                <Bell className="h-[1.4rem] w-[1.2rem] scale-100" />
+            </Button>
+            {notifications.length > 0 && (
+                <span style={{ 
+                    background: '#ff3e00', 
+                    color: 'white', 
+                    borderRadius: '50%', 
+                    padding: '2px 6px', 
+                    fontSize: '12px' 
+                }}>
+                    {notifications.length}
+                </span>
+            )}
 
             <NotificationPanel isOpen={isOpen}>
                 {notifications.length === 0 ? (
-                    <NotificationItem>
-                        <NotificationMessage>No notifications</NotificationMessage>
-                    </NotificationItem>
+                    <NotificationItem/>
                 ) : (
                     notifications.map((notification, index) => (
                         <NotificationItem
